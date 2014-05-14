@@ -42,10 +42,12 @@ classdef TriSystemSmoothEnergy < handle
       %% Generic Smoothed Energy Regularization
       %  This function implements the generic regularization of
       %
-      %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %  Smoothed Quadratic Energies on Meshes
-      %  ACM TOG - J. Martinez Esturo, C. Rössl, and H. Theisel
-      %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      %  J. Martinez Esturo, C. Rössl, and H. Theisel
+      %
+      %  ACM Transactions on Graphics 2014
+      %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %
       %  For a given mesh and smoothing value the generic norm W_n is
       %  setup.
@@ -61,8 +63,8 @@ classdef TriSystemSmoothEnergy < handle
       % beta  - smoothing factor in [0,1]
       % en    - number of quadratic error components per triangle
       % d     - dimension of unknown coefficients at vertices
-      % c     - number of independent functions to setup system rhs for in
-      %         pure quadratic case (defaults to 1)
+      % c     - number of independent functions to setup system rhs
+      %         (defaults to 1)
       %% Output:
       % AAs   - (property) the normal equations of the energy system
       % bbs   - (property) the rhs of the normal equations of the energy system
