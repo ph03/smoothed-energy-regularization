@@ -5,8 +5,10 @@
 
 addpath util;
 
-%% Compile mex file for polar decomposition
-cd util; mex('-O', 'polardecomp.cpp'); cd ..;
+%% Compile mex file for polar decomposition (modify *eigenpath* include path
+%  to your needs)
+eigenpath = 'eigen-git';
+cd util; mex('-O', ['-I' eigenpath], 'polardecomp.cpp'); cd ..;
 
 %% Load mesh and show interactive 2D deformation window
 beta = 0.33;

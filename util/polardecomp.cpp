@@ -26,7 +26,7 @@ exit
 
 #include <mex.h>
 
-#include "./Eigen/Dense"
+#include <Eigen/Dense>
 
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
   
