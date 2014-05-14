@@ -90,7 +90,5 @@ classdef Deform2DFinite < Deform2D
 
       obj.mesh.p = reshape(u,2,[]);
     end
-
   end
-
 end

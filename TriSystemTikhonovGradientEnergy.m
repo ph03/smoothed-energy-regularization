@@ -43,8 +43,8 @@ classdef TriSystemTikhonovGradientEnergy < handle
       % beta  - smoothing factor in [0,1]
       % en    - number of quadratic error components per triangle
       % d     - dimension of unknown coefficients at vertices
-      % c     - number of independent functions to setup system rhs for in
-      %         pure quadratic case (defaults to 1)
+      % c     - number of independent functions to setup system rhs
+      %         (defaults to 1)
 
       if nargin < 6, c = 1; end
 

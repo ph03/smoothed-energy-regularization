@@ -59,7 +59,7 @@ classdef CholConstrSolver < handle
         b=obj.b;
       end
 
-      b(obj.cidxs,:)=[]; %correct?
+      b(obj.cidxs,:)=[];
       b=b-obj.A01*constr;
 
       y=obj.L00'\(obj.L00\b(obj.cholPerm,:));

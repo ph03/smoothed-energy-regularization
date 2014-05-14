@@ -21,6 +21,8 @@ function [V,F,UV,C,N] = readOFF( filename )
   %  C  #V by 3 list of colors
   %  N  #V by 3 list of normals
   %
+  % Copyright 2011, Alec Jacobson (jacobson@inf.ethz.ch)
+  %
   % See also: load_mesh, readOBJfast, readOBJ
 
   V = [];

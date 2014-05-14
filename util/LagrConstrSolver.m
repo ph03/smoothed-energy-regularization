@@ -26,9 +26,9 @@ classdef LagrConstrSolver < handle
   methods
     function obj = LagrConstrSolver(E,A_or_cidxs,b)
       %% Constructor
-      % minimizes f(x) = 1/2*x'*E*x - x'*b + d s.t. A*x=c using
-      % lagrange multipliers.
-      % If cidxs are given A is a corresponding identity matrix.
+      %  Minimizes f(x) = 1/2*x'*E*x - x'*b + d s.t. A*x=c using
+      %  Lagrange multipliers.
+      %  If cidxs are given A is a corresponding identity matrix.
 
       if nargin > 2 && ~isempty(b),
         obj.b=b;

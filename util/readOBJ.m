@@ -14,42 +14,44 @@ function [V,F,UV] = readOBJ( filename )
   % WARNING: This is at least 40 times slower than readOFF but probably much much
   % slower...
   %
+  % Copyright 2011, Alec Jacobson (jacobson@inf.ethz.ch)
+  %
   % See also: load_mesh, readOBJfast, readOFF
 
-V = [];
-UV = [];
-F = [];
-fp = fopen( filename, 'r' );
-type = fscanf( fp, '%s', 1 );
-while strcmp( type, '' ) == 0
-    if strcmp( type, 'v' ) == 1
-        v = fscanf( fp, '%g %g %g\n' );
-        V = [V; v'];
-    elseif strcmp( type, 'vt')
-        v = fscanf( fp, '%g %g %g\n' );
-        UV = [UV; v'];
-    elseif strcmp( type, 'f' ) == 1
-        line = fgets(fp);
-        [t, count] = sscanf(line, '%d/%d/%d %d/%d/%d %d/%d/%d %d/%d/%d %d/%d/%d');
+  V = [];
+  UV = [];
+  F = [];
+  fp = fopen( filename, 'r' );
+  type = fscanf( fp, '%s', 1 );
+  while strcmp( type, '' ) == 0
+      if strcmp( type, 'v' ) == 1
+          v = fscanf( fp, '%g %g %g\n' );
+          V = [V; v'];
+      elseif strcmp( type, 'vt')
+          v = fscanf( fp, '%g %g %g\n' );
+          UV = [UV; v'];
+      elseif strcmp( type, 'f' ) == 1
+          line = fgets(fp);
+          [t, count] = sscanf(line, '%d/%d/%d %d/%d/%d %d/%d/%d %d/%d/%d %d/%d/%d');
 
-        if (count>2)
-            t = t(1:3:end);
-        else
-            [t, count] = sscanf(line, '%d/%d %d/%d %d/%d %d/%d %d/%d');
-            if (count>2)
-                t = t(1:2:end);
-            else
-                [t, count] = sscanf( line, '%d %d %d %d %d %d %d %d %d %d %d\n' );
-            end
-        end
-        F = [F; t'];
-    elseif strcmp( type, '#' ) == 1
-        fscanf( fp, '%s\n', 1 );
-    end
-    type = fscanf( fp, '%s', 1 );
-end
-fclose( fp );
+          if (count>2)
+              t = t(1:3:end);
+          else
+              [t, count] = sscanf(line, '%d/%d %d/%d %d/%d %d/%d %d/%d');
+              if (count>2)
+                  t = t(1:2:end);
+              else
+                  [t, count] = sscanf( line, '%d %d %d %d %d %d %d %d %d %d %d\n' );
+              end
+          end
+          F = [F; t'];
+      elseif strcmp( type, '#' ) == 1
+          fscanf( fp, '%s\n', 1 );
+      end
+      type = fscanf( fp, '%s', 1 );
+  end
+  fclose( fp );
 
-%% transform into array if all faces have the same number of vertices
-if (size(UV,1)>0) UV = UV; end
+  %% transform into array if all faces have the same number of vertices
+  if (size(UV,1)>0) UV = UV; end
 end

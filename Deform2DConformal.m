@@ -62,7 +62,5 @@ classdef Deform2DConformal < Deform2D
 
       mesh.p = reshape(u,2,[]);
     end
-
   end
-
 end
