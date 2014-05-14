@@ -1,7 +1,11 @@
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Smoothed Quadratic Energies on Meshes
-%%  ACM TOG - J. Martinez Esturo, C. Rössl, and H. Theisel
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  J. Martinez Esturo, C. Rössl, and H. Theisel
+%%
+%%  ACM Transactions on Graphics 2014
+%%
+%%  Copyright J. Martinez Esturo 2014 (MIT License)
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [i,j]=blockfillidx(bm,bn,blknum)
 %BLOCKFILLIDX Returns the index arrays i,j (1 x nnz)

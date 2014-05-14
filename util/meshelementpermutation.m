@@ -1,7 +1,11 @@
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Smoothed Quadratic Energies on Meshes
-%%  ACM TOG - J. Martinez Esturo, C. Rössl, and H. Theisel
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  J. Martinez Esturo, C. Rössl, and H. Theisel
+%%
+%%  ACM Transactions on Graphics 2014
+%%
+%%  Copyright J. Martinez Esturo 2014 (MIT License)
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function P = meshelementpermutation(t,n,coefficientwise)
 %% MESHELEMENTPERMUTATION Computes sparse operator P (3*nt*n x nv*n) such

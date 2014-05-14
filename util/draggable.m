@@ -1,8 +1,3 @@
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Smoothed Quadratic Energies on Meshes
-%%  ACM TOG - J. Martinez Esturo, C. Rössl, and H. Theisel
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function draggable(h,varargin)
 % DRAGGABLE - Make it so that a graphics object can be dragged in a figure.
 %   This function makes an object interactive by allowing it to be dragged

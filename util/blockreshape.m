@@ -1,7 +1,11 @@
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Smoothed Quadratic Energies on Meshes
-%%  ACM TOG - J. Martinez Esturo, C. Rössl, and H. Theisel
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  J. Martinez Esturo, C. Rössl, and H. Theisel
+%%
+%%  ACM Transactions on Graphics 2014
+%%
+%%  Copyright J. Martinez Esturo 2014 (MIT License)
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function A = blockreshape(A,blksz,nr,nc)
 %% Resize a column vector of quadratic block matrices to a given number

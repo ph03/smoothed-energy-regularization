@@ -19,30 +19,36 @@ rm -f $TMP.cc $TMP.o
 exit
 */
 
-/*  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Smoothed Quadratic Energies on Meshes
-%%  ACM TOG - - J. Martinez Esturo, C. Rössl, and H. Theisel
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+%%  J. Martinez Esturo, C. Rössl, and H. Theisel
+%%
+%%  ACM Transactions on Graphics 2014
+%%
+%%  Copyright J. Martinez Esturo 2014 (MIT License)
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
 
 #include <mex.h>
 
 #include <Eigen/Dense>
 
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
-  
+
   using namespace Eigen;
-  
+
   if(nrhs < 1 || nlhs != 1) {
     mexWarnMsgTxt("Minimum one input and one output parameter required");
     return;
   }
-  
+
   //Parse opts
   bool fast2D = false;
-  
+
   if(nrhs > 1) {
     const mxArray *opt = prhs[1];
-    
+
     const mxArray *opt_fast2D = mxGetField(opt, 0, "fast2D");
     if(opt_fast2D)
       fast2D = mxGetScalar(opt_fast2D);
@@ -64,32 +70,32 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
   const mwSize nt = n / m;
 
   if(m == 2) {
-    
+
     if(fast2D) {
     //special case closed form solution for 2x2
-    
+
     for(mwSize t = 0; t < nt; ++t) {
       //get transformation
       Map<const Matrix2d> T(data_in + 4*t);
-      
+
       //closed form solution
       double trace        = T.trace();
       double offdiff      = T(0,1) - T(1,0);
       double off_term     = offdiff / trace;
       double denom_global = 1 / sqrt(off_term*off_term + 1);
-      
+
       Matrix2d R;
       R(0,0) = denom_global; R(0,1) = off_term * denom_global;
       R(1,0) = -R(0,1);      R(1,1) = R(0,0);
-      
+
       if(R.determinant() < 0) //safety checks
         R *= 1;
-      
+
       Map<Matrix2d>(data_out + 4*t) = R;
     }
-    
+
     } else {
-      //hope for better compiler optimization 
+      //hope for better compiler optimization
       for(mwSize t = 0; t < nt; ++t) {
         //get transformation
         Map<const Matrix2d> T(data_in + 4*t);
@@ -105,9 +111,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
         Map<Matrix2d>(data_out + 4*t) = R;
       }
     }
-    
+
   } else if(m == 3) {
-    //hope for better compiler optimization 
+    //hope for better compiler optimization
     for(mwSize t = 0; t < nt; ++t) {
       //get transformation
       Map<const Matrix3d> T(data_in + 9*t);
@@ -136,10 +142,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
 
       if(svd.singularValues().prod() < 0) //safety checks
         R *= -1;
-        
+
       Map<MatrixXd>(data_out + m*m*t, m, m) = R;
     }
   }
-  
+
   plhs[0] = R;
 }

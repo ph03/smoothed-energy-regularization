@@ -1,7 +1,11 @@
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Smoothed Quadratic Energies on Meshes
-%%  ACM TOG - J. Martinez Esturo, C. Rössl, and H. Theisel
-%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  J. Martinez Esturo, C. Rössl, and H. Theisel
+%%
+%%  ACM Transactions on Graphics 2014
+%%
+%%  Copyright J. Martinez Esturo 2014 (MIT License)
+%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 classdef TriSystemSmoothEnergy < handle
   %TRISYSTEMSMOOTHENERGY
@@ -102,7 +106,7 @@ classdef TriSystemSmoothEnergy < handle
     function updateLHS(obj,E)
       assert(size(E,1) == obj.nt*obj.en);
       assert(size(E,2) == obj.nv*obj.d);
-      
+
       obj.E = E;
       obj.EtWn = E'*obj.Wn;
 
@@ -119,7 +123,7 @@ classdef TriSystemSmoothEnergy < handle
 
     function [terrEnergy,errEnergy,errSmoothn,errTotal] = ...
         evalTriangleErrors(obj,u)
-      
+
       % local problem per triangle errors
       e = obj.E * u - obj.b;
       terrEnergy = sum(e.*e,2);
