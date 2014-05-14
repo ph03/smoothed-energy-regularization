@@ -1,10 +1,10 @@
 Smoothed Quadratic Energies on Meshes
-=====================================
+-------------------------------------
 ACM Transactions on Graphics 2014 - J. Martinez Esturo, C. Rössl, and H. Theisel
---------------------------------------------------------------------------------
 
-This repository contains a reference implementation of the *smoothed energy
-regularizer for quadratic energies on triangular meshes* proposed in [Paper].
+This repository contains a reference implementation of the generic *smoothed
+energy regularizer for quadratic energies on triangular meshes* proposed in
+this [paper].
 
 MATLAB Demo Implementation
 --------------------------
@@ -32,14 +32,15 @@ Credits
 We link the sources of the Eigen library (see [Eigen]) as a submodule to
 efficiently compute polardecompositions of deformation gradients.
 
-The code makes use of Matlab packages by Alec Jacobson (see [IGLlab]) for mesh
-loading. Please contact Alec at jacobson@inf.ethz.ch and Janick at
-janick@mpi-inf.mpg.de, before using this code outside of an informal
-setting, i.e., for comparisons in an academic paper.
+The code makes use of Matlab functions by Alec Jacobson (see [gptoolbox]) for
+mesh loading.
 
 All files copyright Janick Martinez Esturo 2014 (MIT License) unless
 otherwise noted.
 
-[Paper]:  mpi-inf.mpg.de/~jmartine/pubdetails/MartinezEsturo2014.html
-[Eigen]:  eigen.tuxfamily.org
-[IGLlab]: igl.ethz.ch
+Please contact Janick at <janick@mpi-inf.mpg.de>, before using this code outside
+of an informal setting, e.g., for comparisons in an academic paper.
+
+[paper]: http://www.mpi-inf.mpg.de/~jmartine/pubdetails/MartinezEsturo2014.html
+[Eigen]: http://eigen.tuxfamily.org
+[gptoolbox]: https://github.com/alecjacobson/gptoolbox
