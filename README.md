@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/ph03/smoothed-energy-regularization](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gentoo/rust?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Smoothed Quadratic Energies on Meshes
 -------------------------------------
 ACM Transactions on Graphics 2014 - J. Martinez Esturo, C. Rössl, and H. Theisel
