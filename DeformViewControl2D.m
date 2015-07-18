@@ -295,7 +295,7 @@ classdef DeformViewControl2D < handle
     end
 
     function hidxs = initHandles(obj,hidxs)
-      if(obj.figure_h)
+      if(ishandle(obj.figure_h))
         figure(obj.figure_h); hold on;
         obj.resetHandles();
 
